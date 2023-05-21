@@ -15,4 +15,8 @@ Display meals of specfied category
 <img src="https://i.imgur.com/OSKANuF.png" width="300">
 Meals categories 
 
+<img src="https://i.imgur.com/sh4hFTr.png" width="300">
+Search for your favorite meals
+
+
 
