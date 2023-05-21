@@ -126,7 +126,7 @@ class MealActivity : AppCompatActivity() {
     private fun observeMeal() {
         mViewModel.observeMealById().observe(this) {
             hideProgressbar()
-            mBinding.categoryTv.text = "CategoryMealsResponse : ${it.strCategory}"
+            mBinding.categoryTv.text = "Category : ${it.strCategory}"
             mBinding.areaTv.text = "Area : ${it.strArea}"
             mBinding.descriptionTv.text = it.strInstructions
             mMealYoutube = it.strYoutube

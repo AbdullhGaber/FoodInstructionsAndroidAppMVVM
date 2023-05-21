@@ -5,11 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodappmvvm.databinding.ActivityCategoryMealsBinding
 import com.example.foodappmvvm.model.data_class.CategoryMeals
-import com.example.foodappmvvm.model.retrofit.BaseRetrofit
-import com.example.foodappmvvm.ui.adapters.CategoryItemAdapter
 import com.example.foodappmvvm.ui.adapters.CategoryMealsAdapter
 import com.example.foodappmvvm.util.Constants
 import com.example.foodappmvvm.view_model.CategoryMealsViewModel
@@ -17,7 +14,7 @@ import com.example.foodappmvvm.view_model.CategoryMealsViewModel
 class CategoryMealsActivity : AppCompatActivity() {
     private lateinit var mBinding : ActivityCategoryMealsBinding
     private lateinit var mViewModel : CategoryMealsViewModel
-    private var mMealName : String? = null
+    private var mMealCategory : String? = null
     private lateinit var mCategoryMealsAdapter: CategoryMealsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +28,7 @@ class CategoryMealsActivity : AppCompatActivity() {
         mViewModel = CategoryMealsViewModel()
 
 
-        getCategoryMeals(mMealName)
+        getCategoryMeals(mMealCategory)
         observeCategoryMeals()
 
     }
@@ -58,7 +55,7 @@ class CategoryMealsActivity : AppCompatActivity() {
     }
     private fun getDataFromIntent() {
         val incomingIntent = intent
-        mMealName = incomingIntent.getStringExtra(Constants.MEAL_NAME_TAG)!!
+        mMealCategory = incomingIntent.getStringExtra(Constants.MEAL_NAME_TAG)!!
     }
 
     private fun getCategoryMeals(category : String?) {
@@ -68,7 +65,7 @@ class CategoryMealsActivity : AppCompatActivity() {
     private fun observeCategoryMeals() {
         mViewModel.observeCategoryMeals().observe(this , Observer {
             mCategoryMealsAdapter.setCategoryMeals(it as ArrayList<CategoryMeals>)
-            mBinding.categoryCountTv.text = it.size.toString()
+            mBinding.categoryCountTv.text =  it.size.toString() + " meals of "+ mMealCategory +" category"
         })
     }
 }
