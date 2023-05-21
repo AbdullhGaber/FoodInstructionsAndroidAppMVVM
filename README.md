@@ -1,1 +1,1 @@
-[Imgur](https://i.imgur.com/r5ax7Nk.png)
+<img src="https://i.imgur.com/r5ax7Nk.png" width="300">
